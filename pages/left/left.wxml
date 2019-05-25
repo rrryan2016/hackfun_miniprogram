@@ -1,5 +1,16 @@
 <text class container>Here is the left page.</text>
 
+
+<button bindtap="requestTrial">check</button>
 <button bindtap='goToVoice'class="weui-btn" type="default">语音交互</button> 
 
 <button bindtap='goToChatroom'class="weui-btn" type="default">文字交互</button> 
+
+
+<view class="page">
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-footer__text">Copyright © 2019/5/25-26 肝不动也要肝</view>
+        </view>
+    </view>
+</view>

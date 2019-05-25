@@ -46,7 +46,7 @@ Page({
         url:'/pages/left/left'
       })
 
-    },2000)
+    },3000)
 
   },
 

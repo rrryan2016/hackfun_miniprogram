@@ -1,4 +1,4 @@
 <!--pages/cover/cover.wxml-->
 <!-- <text>pages/cover/cover.wxml</text> -->
 
-<image class='coverPic' src="/images/exp/cover.jpg"></image>
+<image class='coverPic' src="/images/exp/dynamic_cover.gif"></image>

@@ -20,11 +20,24 @@
     justify-content: space-around;
     align-items: center;
 }
-
 .coverPic{
-	width:100%;
-	height:100vh;
-	background: white;
-  
+  width:100%;
+  height:100vh;
+  background: white;
+}
+
+.item {
+  padding: 20rpx;
+  position: relative;
+}
+
+.flex-wrp-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.item-right {
+  position: relative;
+  align-items:center;
 }
 

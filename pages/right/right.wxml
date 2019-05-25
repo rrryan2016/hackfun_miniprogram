@@ -20,29 +20,72 @@
 <view class="weui-cell">
   <!-- <view class="weui-cell weui-cell_input weui-cell_vcode"> -->
   <view class="weui-cell__hd">
-    <view class="weui-label">出发地</view>
+    <view class="weui-label">出发地:{{origin}}</view>
   </view>
   <!-- <view class="weui-cell__bd">
     <input class="weui-input" placeholder="请输入您的出发地" id='1'/>
   </view> -->
 
   <view class="weui-cell__bd">
-    <!-- <view class="weui-vcode-btn">地图选择</view> -->
-    <!-- <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="openMap">打开地图选择</button> -->
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseOrigin">打开地图选择</button>
-    <!-- <image src="/images/icons/map.png" size="2"></image> -->
+    <button class="item flex-wrp-row item-right weui-btn mini-btn" type="primary" size="mini" bindtap="chooseOrigin" style="float:right">地图选择</button>
+    <!-- <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseOrigin">打开地图选择</button> -->
   </view>
 </view>
+<!-- <view>您的出发地：{{origin}}</view> -->
 
-<view>您的出发地：{{origin}}</view>
+<view class="weui-cell weui-cell_input">
 
+  <view class="weui-cell__hd">
+    <view class="weui-label">出发时间：</view>
+  </view>
+  <view class="weui-cell__bd">
+    <picker mode="date" value="{{depart_date}}" start="2019-05-26" end="2029-05-26" bindchange="bindDepartDateChange">
+      <view class="weui-input">{{depart_date}}</view>
+    </picker>
+  </view>
+                  <view class="weui-cell__bd">
+                    <picker mode="time" value="{{depart_time}}" start="09:01" end="21:01" bindchange="bindDepartTimeChange">
+                        <view class="weui-input">{{depart_time}}</view>
+                    </picker>
+                </view>
+</view>
 
 <view class="weui-cell">
   <view class="weui-cell__hd">
-    <view class="weui-label">目的地</view>
+    <view class="weui-label">目的地:{{destination}}</view>
   </view>
   <view class="weui-cell__bd">
-    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseDestination">打开地图选择</button>
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseDestination" style="float:right">地图选择</button>
   </view>
 </view>
-<view>您的目的地：{{destination}}</view>
+
+<!-- <view>您的目的地：{{destination}}</view> -->
+
+<view class="weui-cell weui-cell_input">
+
+  <view class="weui-cell__hd">
+    <view class="weui-label">返回时间：</view>
+  </view>
+  <view class="weui-cell__bd">
+    <picker mode="date" value="{{return_date}}" start="{{depart_time}}" end="2029-05-27" bindchange="bindReturnDateChange">
+    <!-- <picker mode="date" value="{{return_date}}" start="2019-05-27" end="2029-05-27" bindchange="bindReturnDateChange"> -->
+      <view class="weui-input">{{return_date}}</view>
+    </picker>
+  </view>
+                  <view class="weui-cell__bd">
+                    <picker mode="time" value="{{return_time}}" start="09:01" end="21:01" bindchange="bindReturnTimeChange">
+                        <view class="weui-input">{{return_time}}</view>
+                    </picker>
+                </view>
+</view>
+
+
+<button bindtap="beginJourney">开始</button>
+
+<view class="page">
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__text">Copyright © 2019/5/25-26 肝不动也要肝</view>
+    </view>
+  </view>
+</view>

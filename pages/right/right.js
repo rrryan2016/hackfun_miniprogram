@@ -13,8 +13,77 @@ Page({
       // '/images/exp/graffiti_7.jpg',
       // '/images/exp/graffiti_8.jpg',
     ],
+    depart_date: "2019-5-25",
+    depart_time: "12:01",
+    return_date: "2019-5-26",
+    return_time: "14:01",
     origin: '',
-    destination: ''
+    destination: '',
+    current_time: (new Date()).toString
+  },
+
+  bindReturnDateChange: function(e) {
+    this.setData({
+      return_date: e.detail.value
+    })
+  },
+  bindReturnTimeChange: function(e) {
+    this.setData({
+      return_time: e.detail.value
+    })
+  },
+
+  bindDepartDateChange: function(e) {
+    this.setData({
+      depart_date: e.detail.value
+    })
+  },
+  bindDepartTimeChange: function(e) {
+    this.setData({
+      depart_time: e.detail.value
+    })
+  },
+
+  beginJourney: function() {
+    setTimeout(function() {
+      wx.showModal({
+        title: '提醒',
+        content: '现在时间是' + current_time + '，您的XXXX将于XX出发。',
+        showCancel: false,
+        success: function(res) {
+          if (res.confirm) {
+            console.log('User Confirmed')
+
+          }
+        }
+      });
+      // wx.showToast({
+      //   title:'',
+      //   icon:'success',
+      //   duration
+      // })
+    }, 1000)
+    setTimeout(function() {
+      wx.showModal({
+        title: '登车提醒',
+        content: '您的司机（车牌尾号：XXX）正在出发点等您。',
+        showCancel: false,
+        success: function(res) {
+          if (res.confirm) {
+            console.log('User Confirmed')
+          }
+        }
+      });
+      // wx.showToast({
+      //   title:'',
+      //   icon:'success',
+      //   duration
+      // })
+    }, 5000)
+
+
+
+
   },
   toupper: function() {
     console.log("Toupper Triggered")

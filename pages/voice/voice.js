@@ -7,7 +7,8 @@ Page({
     currentText: '',
     input:'',
     showmicro:false,
-    shownull:false
+    shownull:false,
+    city:''
 
   },
 
