@@ -1,1 +1,19 @@
-<text class='container'>Here is voice interaction. </text>
+<!-- <text class='container'>Here is voice interaction. </text> --> -->
+
+<!-- <button bindtap="record">Start Record</button> -->
+
+<view class="container">
+<view catchtouchstart="streamRecord" catchtouchend="endStreamRecord">录音</view>
+<view>您说的是：{{currentText}}</view>
+
+<view class='toast' wx:if="{{showmicro}}">
+<!-- <view class='toast' wx:if="{{showmicro}}" style="{{showmicro?'  transform: scale(-1);':''}}"> -->
+  <image src='/images/icons/microphone.png' class='microphone'></image>
+  <text>正在识别</text>
+  <!-- <waiting-icon class='waiting-icon'></waiting-icon> -->
+</view>
+</view>
+<view class='toast' wx:if="{{shownull}}" style="{{shownull?'  transform: scale(-1);':''}}">
+  <image src='/images/icons/warning.png' class='warning'></image>
+  <text class='warning-text'>请说话</text>
+</view>

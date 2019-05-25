@@ -1,14 +1,20 @@
 {
   "pages": [
-    "pages/right/right",
     "pages/cover/cover",
     "pages/left/left",
     "pages/middle/middle",
+    "pages/right/right",
     "pages/voice/voice",
     "pages/chatroom/chatroom",
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "plugins":{
+    "WechatSI":{
+      "version":"0.2.2",
+      "provider":"wx069ba97219f66d99"
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "我们将您的位置信息，并且不会用作其他用途。"
