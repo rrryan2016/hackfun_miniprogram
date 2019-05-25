@@ -1,19 +1,25 @@
-<!-- <text class='container'>Here is voice interaction. </text> --> -->
+<!--pages/talk/talk.wxml-->
+<view class='container'>
 
-<!-- <button bindtap="record">Start Record</button> -->
+  <view class='showme-layer'>
+    <view class='content-box-showme' scroll-y="true">
+      <text>{{currentText}}</text>
+    </view>
+  </view>
 
-<view class="container">
-<view catchtouchstart="streamRecord" catchtouchend="endStreamRecord">录音</view>
-<view>您说的是：{{currentText}}</view>
+    <view class="button-layer">
+      <image src='/images/icons/microphone_wx.png' class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin" ></image>
+  </view>
 
-<view class='toast' wx:if="{{showmicro}}">
-<!-- <view class='toast' wx:if="{{showmicro}}" style="{{showmicro?'  transform: scale(-1);':''}}"> -->
-  <image src='/images/icons/microphone.png' class='microphone'></image>
-  <text>正在识别</text>
-  <!-- <waiting-icon class='waiting-icon'></waiting-icon> -->
-</view>
-</view>
-<view class='toast' wx:if="{{shownull}}" style="{{shownull?'  transform: scale(-1);':''}}">
-  <image src='/images/icons/warning.png' class='warning'></image>
-  <text class='warning-text'>请说话</text>
+  <view class='toast' wx:if="{{showmicro}}">
+  <!-- <view class='toast' wx:if="{{showmicro}}" style="{{showmicro?'  transform: scale(-1);':''}}"> -->
+    <image src='/images/icons/microphone.png' class='microphone'></image>
+    <text>正在识别</text>
+    <!-- <waiting-icon class='waiting-icon'></waiting-icon> -->
+  </view>
+  <view class='toast' wx:if="{{shownull}}">
+  <!-- <view class='toast' wx:if="{{shownull}}" style="{{shownull?'  transform: scale(-1);':''}}"> -->
+    <image src='/images/icons/warning.png' class='warning'></image>
+    <text class='warning-text'>请说话</text>
+  </view>
 </view>

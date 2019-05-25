@@ -5,73 +5,78 @@ const manager = plugin.getRecordRecognitionManager()
 Page({
   data: {
     currentText: '',
+    input:'',
     showmicro:false,
     shownull:false
 
   },
-  streamRecord: function() {
-    manager.start({
-      lang: 'zh_CN',
-      duration: 30000
-    })
-    this.setData({
-      showmicro:true
-    })
-  },
-  endStreamRecordEnd: function() {
-    manager.stop()
-    this.setData({
-      showmicro:false
-    })
 
-  },
 
-  dele:function(e){
-    this.setData({
-      currentText:''
-    })
-  },
-
-  // record:function(){
-  // 	wx.startRecord({
-  // 		success(res){
-  // 			const tempFilePath = res.tempFilePath
-  // 		}
-  // 	})
-  // 	setTimeout(function(){
-  // 		wx.stopRecord()
-  // 	},10000)
-  // }
-
-  initRecord: function() { //有新的识别内容返回，则会调用此事件
-    manager.onRecognize = (res) => {
-      let text = res.result
-      this.setData({
-        currentText: text,
+    initRecord: function () {
+    var that = this
+    manager.onStart = (res) => {
+      that.setData({
+        showmicro:true
       })
-    } // 识别结束事件
+    }
+
+    // 识别结束事件
     manager.onStop = (res) => {
+      var that = this
       let text = res.result
-      if (text == '') { // 用户没有说话，可以做一下提示处理...
+
+      if (text == '') {
         this.setData({
-          shownull:true
+          shownull: true
         })
-        setTimeout(function (){
+        setTimeout(function () {
           that.setData({
-            shownull:false
+            shownull: false
           })
-        },500)
-        // return
+        }, 500) 
       }
+
       this.setData({
         currentText: text,
-      }) // 得到完整识别内容就可以去翻译了
-      this.translateTextAction()
+        showmicro: false
+      })
     }
-  },
-  translateTextAction: function() {},
-  onLoad: function() {
-    this.initRecord()
-  }
 
+  },
+
+  // listenInput: function (e) {
+  //   var content = e.detail.value
+  //   if (content == '') {
+  //     content = '请您告诉我您的出发点和目的地'
+  //   }
+  //   this.setData({
+  //     currentText: content
+  //   })
+  // },
+
+  dele: function (e) {
+    this.setData({
+      currentText: '',
+      input: ''
+    })
+  },
+
+
+
+  //手指按下
+  touchdown_plugin: function (e) {
+    // wx.stopBackgroundAudio();
+    manager.start({
+      lang: "zh_CN"
+    })
+  },
+  //手指松开
+  touchup_plugin: function () {
+
+    manager.stop();
+  },
+  onLoad:function(){
+    this.initRecord()
+    app.getRecordAuth()
+  }
 })

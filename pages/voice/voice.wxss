@@ -1,10 +1,45 @@
+.microphone {
+  height: 80rpx;
+  width: 80rpx;
+}
+.showme-layer{
+  height: 35%;
+  width: 100%;
+  background: #ffffff;
+}
+.speak-button{
+  height: 220rpx;
+  width: 220rpx;
+  margin-bottom: 20rpx;
+}
 .microphone{
-	height:80rpx;
-	width:80rpx;
+  height: 80rpx;
+  width: 80rpx;
+}
+.warning{
+  height: 80rpx;
+  width: 80rpx;
+  margin-left: 20rpx;
+}
+.content-box-showme{
+  height: 100%;
+  line-height: 1.5;
+  padding: 20rpx 20rpx 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e5e5e5;
+}
+.button-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15rpx;
+  height: 20%;
+  width: 100%;
+  background: #f0f0f0;
 }
 
-.toast{
-  background: rgba(0,0,0, 0.7);
+.toast {
+  background: rgba(0, 0, 0, 0.7);
   color: #fff;
   display: flex;
   align-items: center;
@@ -16,6 +51,20 @@
   top: 340rpx;
   left: 225rpx;
 }
-.toast text{
+
+.toast text {
   font-size: 36rpx;
+}
+
+.speak-button{
+  height: 220rpx;
+  width: 220rpx;
+  margin-bottom: 20rpx;
+}
+.speak-button:active{
+    opacity: .7;
+}
+
+.warning-text{
+  margin-left: 20rpx;
 }
