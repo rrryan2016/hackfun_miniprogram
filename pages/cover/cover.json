@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "欢迎您的体验",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+
 }

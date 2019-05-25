@@ -1,7 +1,48 @@
-<text class='container'>Here is the right page.</text>
-
+<!-- <text class='container'>Here is the right page.</text> -->
+<!-- <text>{{value}}</text> -->
 <swiper autoplay="true">
   <swiper-item wx:for="{{imgUrls}}">
     <image src='{{item}}' width="335" height="150" mode='widthFix' class='img' />
   </swiper-item>
 </swiper>
+
+<!-- <view class="weui-cell weui-cell_input weui-cell_vcode">
+	<view class="weui-cell__hd">
+	<view class="weui-label">出发点</view>	
+	</view>
+	<view class="weui-cell__bd">
+	<input class="weui-input" placeholder="请输入您的出发地"/></view>
+	<view class="weui-cell__ft">
+	<view class="weui-vcode-btn">地图上选择</view>
+	<view>
+</view> -->
+
+<view class="weui-cell">
+  <!-- <view class="weui-cell weui-cell_input weui-cell_vcode"> -->
+  <view class="weui-cell__hd">
+    <view class="weui-label">出发地</view>
+  </view>
+  <!-- <view class="weui-cell__bd">
+    <input class="weui-input" placeholder="请输入您的出发地" id='1'/>
+  </view> -->
+
+  <view class="weui-cell__bd">
+    <!-- <view class="weui-vcode-btn">地图选择</view> -->
+    <!-- <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="openMap">打开地图选择</button> -->
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseOrigin">打开地图选择</button>
+    <!-- <image src="/images/icons/map.png" size="2"></image> -->
+  </view>
+</view>
+
+<view>您的出发地：{{origin}}</view>
+
+
+<view class="weui-cell">
+  <view class="weui-cell__hd">
+    <view class="weui-label">目的地</view>
+  </view>
+  <view class="weui-cell__bd">
+    <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseDestination">打开地图选择</button>
+  </view>
+</view>
+<view>您的目的地：{{destination}}</view>
