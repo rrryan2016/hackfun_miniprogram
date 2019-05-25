@@ -1,0 +1,14 @@
+<text class="container">Here is the middleee page.</text>
+
+<view>Input_1:
+	<input name="input1" placeholder="Please enter something" bindinput="input1Input"/>
+</view>
+
+<view>Input_2:
+<input name="input2" placeholder="Please enter something" bindinput="input2Input"/>
+</view>
+
+<view style="background-color:#fbf9fe">
+<button bindtap="inputBtnClick" class="weui-btn" type="primary">Confirm</button>
+<button bindtap="inputBtnClick" class="weui-btn" type="default">Confirm</button>
+</view>

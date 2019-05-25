@@ -1,0 +1,5 @@
+<text class container>Here is the left page.</text>
+
+<button bindtap='goToVoice'class="weui-btn" type="default">语音交互</button> 
+
+<button bindtap='goToChatroom'class="weui-btn" type="default">文字交互</button> 
