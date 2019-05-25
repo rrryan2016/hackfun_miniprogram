@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/cover/cover",
     "pages/left/left",
     "pages/middle/middle",
     "pages/right/right",

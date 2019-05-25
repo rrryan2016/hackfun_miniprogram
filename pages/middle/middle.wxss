@@ -1,0 +1,12 @@
+/*.tui-loading-row{
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.tui-loading-cell{
+  width: 100%;
+  display: table-cell;
+  text-align: center;
+}*/
+
+
