@@ -71,7 +71,54 @@
   </view>
 </view>
 
-<button style="float:bottom">Confirm</button>
+
+<view class="weui-cells weui-cells_after-title">
+  <!--             <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindAccountChange" value="{{accountIndex}}" range="{{accounts}}">
+                        <view class="weui-select">{{accounts[accountIndex]}}</view>
+                    </picker>
+                </view>
+            </view> -->
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">餐厅类型：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindRestaurantChange" value="{{restaurantIndex}}" range="{{restaurants}}">
+        <view class="weui-select weui-select_in-select-after">{{restaurants[restaurantIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_select">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+      <view class="weui-label">住宿类型：</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker bindchange="bindHotelChange" value="{{hotelIndex}}" range="{{hotels}}">
+        <view class="weui-select weui-select_in-select-after">{{hotels[hotelIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+
+
+<button style="float:bottom" bindtap='updateData' class="round-button">开始定制</button>
+
+<view class="page__bd">
+  <view class="weui-btn-area">
+    <picker value="{{0}}" range="{{recommendedHotel}}">
+      <button type="default" class="round-button" style="margin-top:50rpx">点击查看为您推荐的宾馆</button>
+    </picker>
+    <picker value="{{0}}" range="{{recommendedRestaurant}}">
+      <button type="default" class="round-button" style="margin-top:50rpx">点击查看为您推荐的饭店</button>
+    </picker>
+  </view>
+</view>
+
+<!-- <view>{{recommendedHotel[3]}}</view>
+<view>{{recommendedRestaurant[0]}}</view> -->
 
 <!-- <view class="container"> -->
 <view class="weui-loadmore weui-loadmore_line">
@@ -83,6 +130,8 @@
   </swiper-item>
 </swiper>
 <!-- </view> -->
+
+
 
 <button bindtap="beginJourney">开启提醒</button>
 

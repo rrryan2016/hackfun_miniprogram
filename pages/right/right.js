@@ -1,9 +1,6 @@
 Page({
   data: {
     imgUrls: [
-      // '/images/exp/harden1.jpg',
-      // '/images/exp/harden2.jpg',
-      // '/images/exp/harden3.jpg',
       'http://qcloud.dpfile.com/pc/SOqn8HKhN5NEHTE_DLw3mB1d6rMYoStwknNjhT2jNeIru7nMSCtlSj7iGU77jW6ujoJrvItByyS4HHaWdXyO_DrXIaWutJls2xCVbatkhjUNNiIYVnHvzugZCuBITtvjski7YaLlHpkrQUr5euoQrg.jpg',
       'http://qcloud.dpfile.com/pc/wpcSSbVy32qEOYGLy7mxCJTeJTD9dOdTWhacs9nxt0SfCk7DH6z8B4ncORz8P0FjjoJrvItByyS4HHaWdXyO_DrXIaWutJls2xCVbatkhjUNNiIYVnHvzugZCuBITtvjski7YaLlHpkrQUr5euoQrg.jpg',
       'http://qcloud.dpfile.com/pc/YSOa6Vk134_R_IpojXp7-lu4FkGV7mUZFuiO29NAhnuOIamtgn9yOgxm7XNDABlujoJrvItByyS4HHaWdXyO_DrXIaWutJls2xCVbatkhjUNNiIYVnHvzugZCuBITtvjski7YaLlHpkrQUr5euoQrg.jpg',
@@ -14,15 +11,6 @@ Page({
       'http://qcloud.dpfile.com/pc/w8dhGAp5-8Lmn-Vi84vE4ECandKadBRBF8ZEraNbs4tFCoD-i2665Hq9Mu1yqTjpHB1FIzxqqv4y1DPjvSHfJsPMUtGpjXdtO1pf5OouG4AnY08TQIxe-DkxF3-YDtNHvJLBPMnbGaim65JmQfWVIQ.jpg',
       'http://qcloud.dpfile.com/pc/Y9Kl_j6nesfRpUba2OVc8TciLkG7yjF3SXyzuLq3ejGx6CJbDMzuLvbsbXyIeVdnHB1FIzxqqv4y1DPjvSHfJsPMUtGpjXdtO1pf5OouG4AnY08TQIxe-DkxF3-YDtNHvJLBPMnbGaim65JmQfWVIQ.jpg',
       'http://qcloud.dpfile.com/pc/_fBRKRm2UlEMJvbwhxFB5v6KtsdhqVCjHCCQIAqa32mBdcRp7VNPpghJ6raVQkb_joJrvItByyS4HHaWdXyO_DrXIaWutJls2xCVbatkhjUNNiIYVnHvzugZCuBITtvjski7YaLlHpkrQUr5euoQrg.jpg'
-      
-      // '/images/exp/graffiti_1.jpg',
-      // '/images/exp/graffiti_2.jpg',
-      // '/images/exp/graffiti_3.jpg',
-      // '/images/exp/graffiti_4.jpg',
-      // '/images/exp/graffiti_5.jpg',
-      // '/images/exp/graffiti_6.jpg',
-      // '/images/exp/graffiti_7.jpg',
-      // '/images/exp/graffiti_8.jpg',
     ],
     depart_date: "2019-5-25",
     depart_time: "12:01",
@@ -30,14 +18,103 @@ Page({
     return_time: "14:01",
     origin: '',
     destination: '',
-    current_time: (new Date()).toString
+    // c_type:'',
+    // j_type:'',
+    current_time: (new Date()).toString,
+    restaurants: ["中餐厅", "外国餐厅", "小吃快餐店", "蛋糕甜品店", "咖啡厅", "茶座", "酒吧"],
+    restaurantIndex: 0,
+    hotels: ["星级酒店", "快捷酒店", "公寓式酒店"],
+    hotelIndex: 0,
+    recommendedHotel:[],
+    recommendedRestaurant:[]
+
   },
+  bindHotelChange: function(e) {
+    console.log('picker hotel 发生选择改变，携带值为', e.detail.value);
+
+    this.setData({
+      hotelIndex: e.detail.value
+    })
+  },
+  bindRestaurantChange: function(e) {
+    console.log('picker restaurant 发生选择改变，携带值为', e.detail.value);
+
+    this.setData({
+      restaurantIndex: e.detail.value
+    })
+  },
+
+  updateData:function(e){
+    var that = this;
+
+    var destination_address = that.data.destination;
+    var restaurants = that.data.restaurants;
+    var hotels = that.data.hotels;
+    var restaurantIndex = that.data.restaurantIndex;
+    var hotelIndex = that.data.hotelIndex;
+
+    // var destination_address = this.data.destination;
+    // var restaurants = this.data.restaurants;
+    // var hotels = this.data.hotels;
+    // var restaurantIndex = this.data.restaurantIndex;
+    // var hotelIndex = this.data.hotelIndex;
+
+    console.log("check1: " + restaurants[restaurantIndex])
+    console.log("check2: " + hotels[hotelIndex])
+    console.log("check3: " + destination_address)
+
+    
+
+    wx.request({
+      url: 'https://www.javasocket.top/get_hotel',
+      data: {
+        hotel_type: hotels[hotelIndex], // hotel
+        address: destination_address
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          recommendedHotel: res.data
+        })
+      },
+    })
+
+    wx.request({
+      url:'https://www.javasocket.top/get_restuarant',
+      data:{
+        restuarant_type: restaurants[restaurantIndex], //restaurant
+        address:destination_address
+      },
+      success:function(res){
+        console.log(res)
+        that.setData({
+          recommendedRestaurant:res.data
+        })
+      },
+      })
+
+
+
+      wx.showToast({
+        title: '定制成功',
+        icon: '',
+        image: '',
+        duration: 2000,
+        mask: true,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+
+
+    },
 
   bindReturnDateChange: function(e) {
     this.setData({
       return_date: e.detail.value
     })
   },
+  
   bindReturnTimeChange: function(e) {
     this.setData({
       return_time: e.detail.value
@@ -91,10 +168,6 @@ Page({
       //   duration
       // })
     }, 5000)
-
-
-
-
   },
   toupper: function() {
     console.log("Toupper Triggered")
@@ -141,111 +214,4 @@ Page({
       }
     })
   }
-
-  // getLocationOnMap: function() {
-  //   var that = this;
-  //   wx.authorize({
-  //     scope: 'scope.userLocation',
-  //     complete: function(res) {
-  //       console.log(res)
-  //       wx.chooseLocation({
-  //         success(str) {
-  //           console.log(str)
-  //           var key = 'V7DBZ-K7C22-SXXUJ-CDUE7-AM2LH-AEFCM';
-  //           //发送请求通过经纬度反查地址信息
-  //           var getAddressUrl = "https://apis.map.qq.com/ws/geocoder/v1/?location=" + str.latitude + "," + str.longitude + "&key=" + key + "&get_poi=1";
-  //           wx.request({
-  //             url: getAddressUrl,
-  //             // console.log('url:'+url),
-  //             success: function(result) {
-  //               var province = result.data.result.address_component.province;
-  //               var city = result.data.result.address_component.city;
-  //               var district = result.data.result.address_component.district;
-  //               var address = result.data.result.formatted_addresses.recommend;
-  //               console.log('check_it')
-  //               console.log('province: ' + province)
-  //               console.log('city: ' + city)
-  //               console.log('district: ' + district)
-  //               console.log('省市县:' + province + city + district)
-  //               console.log('地址：' + address)
-  //               console.log('name：' + name)
-  //               console.log('latitude：' + latitude)
-  //               console.log('longitude' + longitude)
-  //               // 返回 name address latitude longitude 
-
-  //               that.setData({
-  //                 "input[1].val": [province, city, district],
-  //                 "input[2].val": address
-  //               })
-  //             }
-  //           })
-  //         }
-  //       })
-  //     }
-  //   })
-  // },
-
-  // openMap2: function() {
-  //   wx.getLocation({
-  //     type: 'wgs84',
-  //     success(res) {
-  //       const latitude = res.latitude
-  //       const longitude = res.longitude
-  //       const accuracy = res.accuracy
-  //       // console.log(latitude)
-  //       // console.log(longitude) //correct but how to trans this to wxml 
-  //       that.setData({
-  //         accuracy: res.accuracy,
-  //         latitude: res.latitude,
-  //         longitude: res.longitude
-  //       })
-  //     },
-  //     fail(res) {
-  //       console.log("Hate it")
-  //     }
-
-  //   })
-  // },
-
-  // openMap1: function() {
-  //   let that = this;
-  //   wx.getLocation({
-  //     //定位类型 wgs84, gcj02
-  //     type: 'gcj02',
-  //     success: function(res) {
-  //       console.log(res)
-  //       wx.openLocation({
-  //         //当前经纬度
-  //         latitude: res.latitude,
-  //         longitude: res.longitude,
-  //         //缩放级别默认28
-  //         scale: 28,
-  //         // //位置名
-  //         // name: '测试地址',
-  //         // //详细地址
-  //         // address: '火星路24号',
-  //         //成功打印信息
-  //         success: function(res) {
-  //           console.log(res)
-  //         },
-  //         //失败打印信息
-  //         fail: function(err) {
-  //           console.log(err)
-  //         },
-  //         //完成打印信息
-  //         complete: function(info) {
-  //           console.log(info)
-  //         },
-  //       })
-
-  //     },
-  //     fail: function(err) {
-  //       console.log(err)
-  //     },
-  //     complete: function(info) {
-  //       console.log(info)
-  //     },
-  //   })
-  // }
-
 })

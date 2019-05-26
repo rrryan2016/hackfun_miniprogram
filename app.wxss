@@ -1,5 +1,7 @@
 @import "officialUI/dist/style/weui.wxss"
 
+/* page{background-color: #353338} */
+
 /**app.wxss**/
 /*.container {
   height: 100%;
@@ -11,9 +13,30 @@
   box-sizing: border-box;
 } */
 
+.round-button{
+  border-radius:30px;
+  /* width:30%; */
+
+}
+
+.ui-color{
+  background-color:#E8AF04;
+}
+
 .container {
     /* background-color: #eee; */
     background-color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: top;*/
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container_black {
+    /* background-color: #eee; */
+    background-color: #353338;
     height: 100vh;
     display: flex;
     flex-direction: column;

@@ -1,16 +1,25 @@
 <!-- <text class container>Here is the left page.</text> -->
+<view>
+<image src="https://ws2.sinaimg.cn/large/006tNc79gy1g3eitmat7xj30m7068dfu.jpg" class="logo-image" style='margin-bottom:100rpx'></image>
+<!-- <image src="/images/exp/logo.jpg" class="logo-image"></image> -->
+</view>
 
-<view class="container" style="height:80%">
-<button bindtap="requestTrial" class="btn-width">check</button>
-<button bindtap='goToSheet'class="weui-btn btn-width" type="default">选框交互</button> 
-<button bindtap='goToVoice'class="weui-btn btn-width" type="default">语音交互</button> 
-<button bindtap='goToChatroom'class="weui-btn btn-width" type="default" disabled="true">文字交互（开发中）</button> 
+<!-- <view class="container"> -->
+<text class="text" style='margin-top:100rpx left:40rpx'>点击下方按钮 \n</text>
+<text class="text" style="margin-bottom:100rpx">快速规划您的行程</text>
+<!-- </view> -->
+
+<view class="container_black" style="height:80% ">
+  <!-- <button bindtap="requestTrial" class="btn-width round-button ui-color">check</button> -->
+  <button bindtap='goToSheet' class="weui-btn btn-width round-button ui-color"style='margin-top:100rpx' >选框交互</button>
+  <button bindtap='goToVoice' class="weui-btn btn-width round-button ui-color">语音交互</button>
+  <button bindtap='goToChatroom' class="weui-btn btn-width round-button" type="default" disabled="true">文字交互（开发中）</button>
 </view>
 
 <view class="page">
-    <view class="page__bd page__bd_spacing">
-        <view class="weui-footer weui-footer_fixed-bottom">
-            <view class="weui-footer__text">Copyright © 2019/5/25-26 肝不动也要肝</view>
-        </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__text">Copyright © 2019/5/25-26 肝不动也要肝</view>
     </view>
+  </view>
 </view>

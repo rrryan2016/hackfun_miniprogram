@@ -45,8 +45,7 @@ Page({
       wx.reLaunch({
         url:'/pages/left/left'
       })
-
-    },3000)
+    },3500)
 
   },
 

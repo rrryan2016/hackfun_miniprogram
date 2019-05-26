@@ -34,7 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    rearEndUrl:"https://www.javasocket.top/order_kicket"
   }
 })
 
