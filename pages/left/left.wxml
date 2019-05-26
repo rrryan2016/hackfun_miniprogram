@@ -1,11 +1,11 @@
-<text class container>Here is the left page.</text>
+<!-- <text class container>Here is the left page.</text> -->
 
-
-<button bindtap="requestTrial">check</button>
-<button bindtap='goToVoice'class="weui-btn" type="default">语音交互</button> 
-
-<button bindtap='goToChatroom'class="weui-btn" type="default">文字交互</button> 
-
+<view class="container" style="height:80%">
+<button bindtap="requestTrial" class="btn-width">check</button>
+<button bindtap='goToSheet'class="weui-btn btn-width" type="default">选框交互</button> 
+<button bindtap='goToVoice'class="weui-btn btn-width" type="default">语音交互</button> 
+<button bindtap='goToChatroom'class="weui-btn btn-width" type="default" disabled="true">文字交互（开发中）</button> 
+</view>
 
 <view class="page">
     <view class="page__bd page__bd_spacing">

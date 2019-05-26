@@ -1,10 +1,5 @@
 <!-- <text class='container'>Here is the right page.</text> -->
 <!-- <text>{{value}}</text> -->
-<swiper autoplay="true">
-  <swiper-item wx:for="{{imgUrls}}">
-    <image src='{{item}}' width="335" height="150" mode='widthFix' class='img' />
-  </swiper-item>
-</swiper>
 
 <!-- <view class="weui-cell weui-cell_input weui-cell_vcode">
 	<view class="weui-cell__hd">
@@ -20,7 +15,7 @@
 <view class="weui-cell">
   <!-- <view class="weui-cell weui-cell_input weui-cell_vcode"> -->
   <view class="weui-cell__hd">
-    <view class="weui-label">出发地:{{origin}}</view>
+    <view class="weui-label" style="width: 450rpx;">出发地:{{origin}}</view>
   </view>
   <!-- <view class="weui-cell__bd">
     <input class="weui-input" placeholder="请输入您的出发地" id='1'/>
@@ -43,44 +38,53 @@
       <view class="weui-input">{{depart_date}}</view>
     </picker>
   </view>
-                  <view class="weui-cell__bd">
-                    <picker mode="time" value="{{depart_time}}" start="09:01" end="21:01" bindchange="bindDepartTimeChange">
-                        <view class="weui-input">{{depart_time}}</view>
-                    </picker>
-                </view>
+  <view class="weui-cell__bd">
+    <picker mode="time" value="{{depart_time}}" start="09:01" end="21:01" bindchange="bindDepartTimeChange">
+      <view class="weui-input">{{depart_time}}</view>
+    </picker>
+  </view>
 </view>
 
 <view class="weui-cell">
   <view class="weui-cell__hd">
-    <view class="weui-label">目的地:{{destination}}</view>
+    <view class="weui-label" style="width: 450rpx;">目的地:{{destination}}</view>
   </view>
   <view class="weui-cell__bd">
     <button class="weui-btn mini-btn" type="primary" size="mini" bindtap="chooseDestination" style="float:right">地图选择</button>
   </view>
 </view>
 
-<!-- <view>您的目的地：{{destination}}</view> -->
-
 <view class="weui-cell weui-cell_input">
-
   <view class="weui-cell__hd">
     <view class="weui-label">返回时间：</view>
   </view>
   <view class="weui-cell__bd">
     <picker mode="date" value="{{return_date}}" start="{{depart_time}}" end="2029-05-27" bindchange="bindReturnDateChange">
-    <!-- <picker mode="date" value="{{return_date}}" start="2019-05-27" end="2029-05-27" bindchange="bindReturnDateChange"> -->
+      <!-- <picker mode="date" value="{{return_date}}" start="2019-05-27" end="2029-05-27" bindchange="bindReturnDateChange"> -->
       <view class="weui-input">{{return_date}}</view>
     </picker>
   </view>
-                  <view class="weui-cell__bd">
-                    <picker mode="time" value="{{return_time}}" start="09:01" end="21:01" bindchange="bindReturnTimeChange">
-                        <view class="weui-input">{{return_time}}</view>
-                    </picker>
-                </view>
+  <view class="weui-cell__bd">
+    <picker mode="time" value="{{return_time}}" start="09:01" end="21:01" bindchange="bindReturnTimeChange">
+      <view class="weui-input">{{return_time}}</view>
+    </picker>
+  </view>
 </view>
 
+<button style="float:bottom">Confirm</button>
 
-<button bindtap="beginJourney">开始</button>
+<!-- <view class="container"> -->
+<view class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">给您推荐的美食和住宿</view>
+</view>
+<swiper autoplay="true">
+  <swiper-item wx:for="{{imgUrls}}">
+    <image src='{{item}}' width="335" height="150" mode='widthFix' class='img' />
+  </swiper-item>
+</swiper>
+<!-- </view> -->
+
+<button bindtap="beginJourney">开启提醒</button>
 
 <view class="page">
   <view class="page__bd page__bd_spacing">

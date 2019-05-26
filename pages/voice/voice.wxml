@@ -8,6 +8,7 @@
   </view>
 
     <view class="button-layer">
+    <!-- <view class="button-layer" style='justify-content:button;float:button'> -->
       <image src='/images/icons/microphone_wx.png' class='speak-button' catchtouchstart="touchdown_plugin" catchtouchend="touchup_plugin" ></image>
   </view>
 

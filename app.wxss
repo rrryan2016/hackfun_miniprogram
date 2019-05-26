@@ -17,6 +17,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /*justify-content: top;*/
     justify-content: space-around;
     align-items: center;
 }
@@ -25,6 +26,11 @@
   height:100vh;
   background: white;
 }
+
+.btn-width{
+  width:70%;
+}
+
 
 .item {
   padding: 20rpx;

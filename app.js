@@ -37,3 +37,31 @@ App({
     userInfo: null
   }
 })
+
+// ,
+//   "tabBar": {
+//     "list": [
+//       {
+//         "text": "体验版",
+//         "pagePath": "pages/left/left",
+//         "iconPath": "images/icons/0.png",
+//         "selectedIconPath": "images/icons/0.png"
+//       }
+//     ]
+//   }
+
+// ,
+//       {
+//         "text": "Display 1",
+//         "pagePath": "pages/middle/middle",
+//         "iconPath": "images/icons/1.png",
+//         "selectedIconPath": "images/icons/1.png"
+//       }
+
+// ,
+//       {
+//         "text": "Display 2",
+//         "pagePath": "pages/right/right",
+//         "iconPath": "images/icons/2.png",
+//         "selectedIconPath": "images/icons/2.png"
+//       }
